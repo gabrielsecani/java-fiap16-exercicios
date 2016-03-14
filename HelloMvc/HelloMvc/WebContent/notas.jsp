@@ -1,5 +1,7 @@
+<%@page import="br.hellomvc.model.NotaSemestral"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,20 +13,22 @@
 		<tr>
 			<th>RM</th>
 			<th>Disciplina</th>
-			<th>NAC 1</th>
-			<th>NAC 2</th>
+			<c:forEach var="nac" items="${notaSemestral.nacs}" varStatus="s">
+			<th>NAC ${s.count}</th>
+			</c:forEach>
 			<th>AM</th>
 			<th>PS</th>
 			<th>Final</th>
 		</tr>
 		<tr>
-			<td>RM</td>
-			<td>Disciplina</td>
-			<td>NAC 1</td>
-			<td>NAC 2</td>
-			<td>AM</td>
-			<td>PS</td>
-			<td>Final</td>
+			<td>${notaSemestral.rm}</td>
+			<td>${notaSemestral.disciplina}</td>
+			<c:forEach var="nac" items="${notaSemestral.nacs}">
+			<td>${nac}</td>
+			</c:forEach>
+			<td>${notaSemestral.am}</td>
+			<td>${notaSemestral.ps}</td>
+			<td>${notaSemestral.notaFinal}</td>
 		</tr>
 	</table>
 </body>

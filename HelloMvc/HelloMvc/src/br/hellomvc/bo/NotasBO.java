@@ -18,18 +18,19 @@ public class NotasBO {
 		ArrayList<Double> nacs = new ArrayList<Double>();
 		n.setRm("72468");
 		n.setDisciplina("TAP");
-		nacs.add(7.9);
-		nacs.add(4.3);
+		nacs.add(7.2);
+		nacs.add(4.6);
 		n.setNacs(nacs);
 		n.setAm(6.2);
 		n.setPs(9.5);
 		notasSemestrais.add(n);
 
 		n = new NotaSemestral();
+		nacs = new ArrayList<Double>();
 		n.setRm("12345");
 		n.setDisciplina("TAP");
-		nacs.add(7.9);
-		nacs.add(4.3);
+		nacs.add(1.2);
+		nacs.add(3.4);
 		n.setNacs(nacs);
 		n.setAm(6.6);
 		n.setPs(5.5);
@@ -39,8 +40,8 @@ public class NotasBO {
 		nacs = new ArrayList<Double>();
 		n.setRm("56789");
 		n.setDisciplina("TAP");
-		nacs.add(5.9);
-		nacs.add(7.3);
+		nacs.add(5.6);
+		nacs.add(7.8);
 		n.setNacs(nacs);
 		n.setAm(9.7);
 		n.setPs(6.9);
