@@ -7,6 +7,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+	th{
+		color:green;
+		width: 140px;
+	}
+	td{
+	padding:2px;
+	}
+</style>
 </head>
 <body>
 	<table>
