@@ -7,44 +7,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Passo 2: Digitação</title>
 <style>
-	th{
-		color:green;
-		width: 140px;
-	}
-	td{
-	padding:2px;
-	}
+th {
+	color: green;
+	width: 140px;
+}
+
+td {
+	padding: 2px;
+}
 </style>
 </head>
 <body>
 	<h1>Passo 2: Digitação das notas</h1>
 	<form action="/digitacao">
+		<div>
+			Disciplina: <b>${txtDisciplina}</b>
+			
+		</div>
 		<table>
-			<c:forEach var="aluno" varStatus="s" begin="1" end="6">
+			<c:forEach var="aluno" varStatus="s" begin="1" end="${txtQtdAlunos}">
 				<tr>
 					<c:choose>
 						<c:when test="${s.count == 1}">
 							<th>RM</th>
 							<%-- <c:forEach var="nac" items="${aluno.nacs}"> --%>
-							<c:forEach var="nac" begin="1" end="3" varStatus="snac">
-								<th>NAC ${snac.count}</th>
+							<c:forEach var="nac" begin="1" end="${txtQtdNacs}">
+								<th>NAC ${nac}</th>
 							</c:forEach>
 							<th>AM</th>
 							<th>PS</th>
 						</c:when>
 						<c:otherwise>
-							<td>RM</td>
+							<td><input type="input" name="rm" /></td>
 							<%-- <c:forEach var="nac" items="${aluno.nacs}"> --%>
-							<c:forEach var="nac" begin="1" end="3" varStatus="snac">
-								<td>NAC ${snac.count}</td>
+							<c:forEach var="nac" begin="1" end="${txtQtdNacs}">
+								<td><input type="input" name="nac" /></td>
 							</c:forEach>
-							<td>AM</td>
-							<td>PS</td>
+							<td><input type="input" name="am" /></td>
+							<td><input type="input" name="ps" /></td>
 						</c:otherwise>
 					</c:choose>
 				</tr>
 			</c:forEach>
 		</table>
+		<div>
+			<input type="hidden" name="action" value="digitacao"/>
+			<input type="submit" value="Avançar" />
+		</div>
 	</form>
 </body>
 </html>
