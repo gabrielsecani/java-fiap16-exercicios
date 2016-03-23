@@ -19,39 +19,37 @@ td {
 </head>
 <body>
 	<h1>Passo 2: Digitação das notas</h1>
-	<form action="/digitacao">
+	<form action="cadnac">
+	<input type="hidden" name="action" value="digitacao"/>
 		<div>
-			Disciplina: <b>${txtDisciplina}</b>
-			
+			Disciplina: <b>${disciplina}</b>
+
 		</div>
 		<table>
-			<c:forEach var="aluno" varStatus="s" begin="1" end="${txtQtdAlunos}">
+			<tr>
+				<th>&nbsp;</th>
+				<th>RM</th>
+				<%-- <c:forEach var="nac" items="${aluno.nacs}"> --%>
+				<c:forEach var="nac" begin="1" end="${qtdNacs}">
+					<th>NAC ${nac}</th>
+				</c:forEach>
+				<th>AM</th>
+				<th>PS</th>
+			</tr>
+
+			<c:forEach var="aluno" varStatus="s" begin="1" end="${qtdAlunos}">
 				<tr>
-					<c:choose>
-						<c:when test="${s.count == 1}">
-							<th>RM</th>
-							<%-- <c:forEach var="nac" items="${aluno.nacs}"> --%>
-							<c:forEach var="nac" begin="1" end="${txtQtdNacs}">
-								<th>NAC ${nac}</th>
-							</c:forEach>
-							<th>AM</th>
-							<th>PS</th>
-						</c:when>
-						<c:otherwise>
-							<td><input type="input" name="rm" /></td>
-							<%-- <c:forEach var="nac" items="${aluno.nacs}"> --%>
-							<c:forEach var="nac" begin="1" end="${txtQtdNacs}">
-								<td><input type="input" name="nac" /></td>
-							</c:forEach>
-							<td><input type="input" name="am" /></td>
-							<td><input type="input" name="ps" /></td>
-						</c:otherwise>
-					</c:choose>
+					<td>${s.count-1}</td>
+					<td><input type="input" name="txtRM" /></td>
+					<c:forEach var="nac" begin="1" end="${qtdNacs}">
+						<td><input type="input" name="txtNAC" /></td>
+					</c:forEach>
+					<td><input type="input" name="txtAM" /></td>
+					<td><input type="input" name="txtPS" /></td>
 				</tr>
 			</c:forEach>
 		</table>
 		<div>
-			<input type="hidden" name="action" value="digitacao"/>
 			<input type="submit" value="Avançar" />
 		</div>
 	</form>

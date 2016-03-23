@@ -2,6 +2,7 @@ package br.com.cadastronac.bean;
 
 import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class NotaSemestral {
 
@@ -65,10 +66,27 @@ public class NotaSemestral {
 		
 		nf += am * 0.3 + ps * 0.5; 
 		
-		NumberFormat fmt = NumberFormat.getInstance();
+		NumberFormat fmt = NumberFormat.getInstance(new Locale("en", "US"));
 		fmt.setMaximumFractionDigits(2);
 		
 		return fmt.format(nf);
+	}
+	
+	public String getMediaNacs(){
+		
+		Double nf = 0D;
+		
+		for(Double n : nacs){
+			nf += n;
+		}
+		
+		nf = (nf / nacs.size()) * 0.2;
+		
+		NumberFormat fmt = NumberFormat.getInstance(new Locale("en", "US"));
+		fmt.setMaximumFractionDigits(2);
+		
+		return fmt.format(nf);
+		
 	}
 		
 }

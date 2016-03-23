@@ -6,7 +6,8 @@
 </head>
 <body>
 	<h1>Passo 1: Entrada dos dados para cadastro</h1>
-	<form action="entrada" method="post">
+	<form action="cadnac" method="post">
+	<input type="hidden" name="action" value="entrada"/>
 		<div>
 			<label for="txtDisciplina">Digite a disciplina:</label> <input
 				id="txtDisciplina" name="txtDisciplina">
@@ -17,7 +18,7 @@
 		</div>
 		<div>
 			<label for="txtQtdAlunos">Digite a quantidade de alunos:</label> <input
-				id="txtQtdAlunos" name="txtQtdAlunos"><br />
+				id="txtQtdAlunos" name="txtQtdAlunos">
 		</div>
 		<div>
 			<input type="hidden" name="action" value="entrada" />

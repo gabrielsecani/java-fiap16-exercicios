@@ -7,41 +7,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Passo 3: Confirmação</title>
 <style>
-	th{
-		color:green;
-		width: 140px;
-	}
-	td{
-	padding:2px;
-	}
+th {
+	color: green;
+	width: 140px;
+}
+
+td {
+	padding: 2px;
+}
 </style>
 </head>
 <body>
 	<h1>Passo 3: Confirmação</h1>
-	<form action="/digitacao">
+	<form action="cadnac">
+		<input type="hidden" name="action" value="confirmacao" />
 		<table>
-			<c:forEach var="aluno" varStatus="s" begin="1" end="60">
+			<tr>
+				<th>&nbsp;</th>
+				<th>RM</th>
+				<th>Md.NACs</th>
+				<th>AM</th>
+				<th>PS</th>
+			</tr>
+			<c:forEach items="${notas}" var="nota" varStatus="s">
 				<tr>
-					<c:choose>
-						<c:when test="${s.count == 1}">
-							<th>RM</th>
-							<%-- <c:forEach var="nac" items="${aluno.nacs}"> --%>
-							<c:forEach var="nac" begin="1" end="3" varStatus="snac">
-								<th>NAC ${snac.count}</th>
-							</c:forEach>
-							<th>AM</th>
-							<th>PS</th>
-						</c:when>
-						<c:otherwise>
-							<td>RM</td>
-							<%-- <c:forEach var="nac" items="${aluno.nacs}"> --%>
-							<c:forEach var="nac" begin="1" end="3" varStatus="snac">
-								<td>NAC ${snac.count}</td>
-							</c:forEach>
-							<td>AM</td>
-							<td>PS</td>
-						</c:otherwise>
-					</c:choose>
+					<td>${s.count-1}</td>
+					<td>${nota.rm}</td>
+					<td>${nota.mediaNacs}</td>
+					<td>${nota.am}</td>
+					<td>${nota.ps}</td>
 				</tr>
 			</c:forEach>
 		</table>
