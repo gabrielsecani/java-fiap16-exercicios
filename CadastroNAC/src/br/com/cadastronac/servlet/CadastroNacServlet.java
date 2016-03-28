@@ -1,6 +1,7 @@
 package br.com.cadastronac.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -72,7 +73,7 @@ public class CadastroNacServlet extends HttpServlet {
 			return "digitacao";
 
 		} catch (Exception e) {
-			request.setAttribute("msgErro", e.getMessage());
+			request.getSession().setAttribute("msgErro", e.getMessage());
 			return "erro";
 		}
 	}
@@ -94,20 +95,49 @@ public class CadastroNacServlet extends HttpServlet {
 
 			// chama classe de negocio que sabem resolver os problemas
 			NotasBO bo=new NotasBO();
-			bo.getListOfNotaSemestralFromArrays(listaRM, listaNAC, listaAM, listaPS, qtdNacs, disciplina);
+			List<NotaSemestral> notas = bo.getListOfNotaSemestralFromArrays(listaRM, listaNAC, listaAM, listaPS, qtdNacs, disciplina);
 			
 			// compartilhar a informação
-			request.getSession().setAttribute("notas", bo);
+			request.getSession().setAttribute("notas", notas);
 			
 			return "confirmacao";
 		} catch (Exception e) {
-			request.setAttribute("msgErro", e.getMessage());
+			request.getSession().setAttribute("msgErro", e.getMessage());
 			return "erro";
 		}
 	}
 
 	private String trataConfirmacao(HttpServletRequest request, HttpServletResponse response) {
-		return "erro";
+		//Declaracao das variaveis
+		String url;
+		
+		NotasBO bo = new NotasBO();
+		
+		try{
+			//Leitura de informacao armazenada na memoria (escopo de sessao)
+			List<NotaSemestral> notas = (List<NotaSemestral>)request.getSession().getAttribute("notas");
+			
+			//Chama classes de negocio para resolver qualquer problema (nao eh responsabilidade do servlet)
+			List<NotaSemestral> notasMax = bo.getMaxNotaSemestral(notas);
+			List<NotaSemestral> notasMin = bo.getMinNotaSemestral(notas);
+			Double media = bo.getMediaNotaSemestral(notas);
+			
+			//Compartilhamento das informacoes na memoria (escopo de requisicao) para serem utilizadas pela camada de apresentacao (JSP)
+			request.setAttribute("maximas", notasMax);
+			request.setAttribute("minimas", notasMin);
+			request.setAttribute("media", media);
+			
+			//Define o recurso (JSP) usado na camada de apresentacao
+			return "final"; 
+		}catch(Exception e){
+			
+			//Armazena a mensagem de um eventual erro na memÃ³ria (escopo de requisicao)
+			request.setAttribute("mensagemErro", e.getMessage());
+			
+			//Define o recurso (JSP) usado na camada de apresentacao
+			return "erro";
+		}
+
 	}
 
 	/**

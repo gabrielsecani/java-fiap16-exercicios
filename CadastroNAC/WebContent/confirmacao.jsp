@@ -39,6 +39,10 @@ td {
 				</tr>
 			</c:forEach>
 		</table>
+		<div>
+			<input type="submit" value="Avançar" />
+		</div>
+
 	</form>
 </body>
 </html>
