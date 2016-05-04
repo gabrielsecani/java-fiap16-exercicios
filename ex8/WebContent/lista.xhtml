@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Lista Funcionario</title>
+</h:head>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<th>CPF</th>
+				<th>Nome</th>
+				<th>Salário</th>
+			</tr>
+			<ui:repeat var="f" value="#{funcionarioMB.listaFuncionarios}">
+				<tr>
+					<td>#{f.cpf</td>
+					<td>#{f.nome</td>
+					<td>#{f.salario</td>
+				</tr>
+			</ui:repeat>
+		</table>
+		<h:commandButton value="Incluir" action="#{funcionarioMB.incluir}" />
+	</h:form>
+</h:body>
+</html>
