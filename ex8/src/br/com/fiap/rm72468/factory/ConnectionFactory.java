@@ -14,7 +14,10 @@ public class ConnectionFactory {
 		try {
 			   Class.forName("com.mysql.jdbc.Driver");
 		} 
-		catch (ClassNotFoundException ex){ }
+		catch (ClassNotFoundException ex){ 
+			System.out.println("ERRO!");
+			ex.printStackTrace();
+		}
 		
 		String server = "localhost";
 		String database = "ex8";

@@ -5,7 +5,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>Lista Funcionario</title>
+	<title>Lista de Funcionarios</title>
 </h:head>
 <h:body>
 	<h:form>
@@ -15,15 +15,15 @@
 				<th>Nome</th>
 				<th>Salário</th>
 			</tr>
-			<ui:repeat var="f" value="#{funcionarioMB.listaFuncionarios}">
+			<ui:repeat var="f" value="#{funcionarioMB.listagemFuncionarios}">
 				<tr>
-					<td>#{f.cpf</td>
-					<td>#{f.nome</td>
-					<td>#{f.salario</td>
+					<td>#{f.cpf}</td>
+					<td>#{f.nome}</td>
+					<td>#{f.salario}</td>
 				</tr>
 			</ui:repeat>
 		</table>
-		<h:commandButton value="Incluir" action="#{funcionarioMB.incluir}" />
+		<h:commandButton value="Novo" action="incluir" />
 	</h:form>
 </h:body>
 </html>

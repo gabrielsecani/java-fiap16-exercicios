@@ -21,7 +21,9 @@ public class FuncionarioDAO {
 			conn = ConnectionFactory.getConnection();
 		}
 		
-		catch(SQLException ex){ }
+		catch(SQLException ex){
+			System.err.println(ex.getMessage());
+		}
 	}
 	
 	public void insert(Funcionario f){
@@ -38,8 +40,8 @@ public class FuncionarioDAO {
 			stmt.executeUpdate();
 
 		}
-		catch(SQLException ex){ 
-			
+		catch(SQLException ex){
+			System.err.println(ex.getMessage());
 		}
 		finally{
 			try {
@@ -73,7 +75,7 @@ public class FuncionarioDAO {
 			
 		}
 		catch(SQLException ex){ 
-			
+			System.err.println(ex.getMessage());
 		}
 		finally{
 			try {
