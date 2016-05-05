@@ -9,7 +9,7 @@
 	<title>Lista de Funcionarios</title>
 </h:head>
 <h:body>
-	
+
 	<h:form>
 		<table>
 			<tr>
@@ -25,26 +25,27 @@
 				</tr>
 			</ui:repeat>
 		</table>
-		<br/>
-		
-	<br/>
+		<br />
+
+		<br />
 	Listagem usando h:dataTable...
-	<br/>
-	
-	<h:dataTable var="f" value="#{funcionarioMB.listagemFuncionarios}">
-	<h:column>
-	<f:facet name="header">CPF</f:facet>
-	#{f.cpf}
-	</h:column> 
-	<h:column>
-	<f:facet name="header">Nome</f:facet>
-	#{f.nome}
-	</h:column> 
-	<h:column>
-	<f:facet name="header">Salário</f:facet>
-	#{f.salario}
-	</h:column> 
-	</h:dataTable>
+	<br />
+
+		<h:dataTable var="f" value="#{funcionarioMB.listagemFuncionarios}">
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+				#{f.cpf}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{f.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Salário</f:facet>
+				#{f.salario}
+			</h:column>
+		</h:dataTable>
+		
 	</h:form>
 </h:body>
 </html>
