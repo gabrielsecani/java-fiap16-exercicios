@@ -8,9 +8,9 @@ xmlns:h="http://java.sun.com/jsf/html">
 </h:head>
 <h:body>
 <h:form>
-	<h:commandLink value="Incluir novo funcionario" action="incluir"/><br/>
-	<h:commandLink value="Listar todos os funcionario" action="#{funcionarioMB.listar}"/><br/>
-	<h:commandLink value="Pesquisar funcionario" action="pesquisar"/>
+	<h:commandLink value="#{msg.menu_incluirNovoFuncionario}" action="incluir"/><br/>
+	<h:commandLink value="#{msg.menu_listarTodosOsFuncionario}" action="#{funcionarioMB.listar}"/><br/>
+	<h:commandLink value="#{msg.menu_pesquisarFuncionario}" action="pesquisar"/>
 </h:form>
 </h:body>
 </html>

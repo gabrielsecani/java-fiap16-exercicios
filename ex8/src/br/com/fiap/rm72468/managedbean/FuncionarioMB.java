@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import br.com.fiap.rm72468.bean.Funcionario;
 import br.com.fiap.rm72468.dao.FuncionarioDAO;
 
-@ManagedBean
+//sem anotation @ManagedBean, inserido no faces-config.xml
 public class FuncionarioMB {
 
 	// Propriedades de entrada
