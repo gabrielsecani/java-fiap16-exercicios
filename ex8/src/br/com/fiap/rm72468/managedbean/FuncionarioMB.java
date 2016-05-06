@@ -2,8 +2,6 @@ package br.com.fiap.rm72468.managedbean;
 
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-
 import br.com.fiap.rm72468.bean.Funcionario;
 import br.com.fiap.rm72468.dao.FuncionarioDAO;
 

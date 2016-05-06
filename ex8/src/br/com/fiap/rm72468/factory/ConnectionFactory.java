@@ -3,9 +3,6 @@ package br.com.fiap.rm72468.factory;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Logger;
-
-import com.mysql.jdbc.log.Log;
 
 public class ConnectionFactory {
 

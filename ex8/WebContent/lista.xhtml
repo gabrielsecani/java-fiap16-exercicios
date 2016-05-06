@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:view locale="#{lingua.locale}">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Lista de Funcionarios</title>
@@ -11,6 +12,7 @@
 <h:body>
 
 	<h:form>
+		<ui:include src="locale.xhtml"/>
 		<table>
 			<tr>
 				<th>CPF</th>
@@ -48,4 +50,5 @@
 		
 	</h:form>
 </h:body>
+</f:view>
 </html>

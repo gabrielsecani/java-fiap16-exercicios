@@ -22,7 +22,7 @@
 	</managed-bean>
 
 	<managed-bean>
-		<managed-bean-name>localeMB</managed-bean-name>
+		<managed-bean-name>lingua</managed-bean-name>
 		<managed-bean-class>br.com.fiap.rm72468.managedbean.LocaleMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
